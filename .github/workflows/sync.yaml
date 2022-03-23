@@ -2,7 +2,8 @@ name: Mirror Sourcegraph to Incremental Indexing Fork
 
 on:
   schedule:
-    - cron:  '*/5 * * * *' 
+    - cron:  '*/5 * * * *'
+  workflow_dispatch:
 
 # Ensures that only one mirror task will run at a time.
 concurrency:
