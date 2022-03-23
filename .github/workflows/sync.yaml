@@ -8,11 +8,15 @@ on:
 concurrency:
   group: git-mirror
 
+
 jobs:
   git-mirror:
+    environment: 'Sync'
     runs-on: ubuntu-latest
     steps:
       - uses: wearerequired/git-mirror-action@v1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         with:
           source-repo: "git@github.com:sourcegraph/sourcegraph.git"
           destination-repo: "git@github.com:sourcegraph/sourcegraph-incremental-indexing-fork.git"
